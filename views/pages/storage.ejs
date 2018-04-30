@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+	<div class = "">
+		<div class="col s12">
+			<a href="/BDiZ/storage/add" class="btn btn-success btn-lg mt-1">Додати товар</a>
+			<a href="/" class="btn btn-success btn-lg mt-1">На головну</a>
+		</div>
+	</div>
+	<br>
+
+	<div class "=">
+		<div class="col s12">
+			<% if (items.length > 0){%>
+			<table class = "table">
+				<thead>
+					<tr>
+						<th style="width:20%; text-align:center">Найменування товару</th>
+						<th style="width:10%; text-align:center">Код товару</th>
+						<th style="width:20%; text-align:center">Дата прийому</th>
+						<th style="width:10%; text-align:center">Кількість</th>
+						<th style="width:10%; text-align:center">Вартість товару</th>
+						<th solspan="2" style ="width:30%; text-align:center">Дії</th>
+					</tr>
+				</thead>
+			<tbody>
+				<% items.forEach(function(item, index){ %>
+					<tr>
+							
+							<td style="width:20%; text-align:center"><%= item.nameOfGoods %></td>
+							<td style="width:10%; text-align:center"><%= item.productCode %></td>
+							<td style="width:20%; text-align:center"><%= item.dateOfRecive %></td>
+							<td style="width:10%; text-align:center"><%= item.aviable %></td>
+							<td style="width:10%; text-align:center"><%= item.costOfGood %></td>
+							<td solspan="2" style="width:30%; text-align:center"><%= item.name %>
+								<a href="/BDiZ/storage/edit/<%= item.productCode %>" class="btn btn-success">Редагувати</a>
+								<a href="/BDiZ/storage/delete/<%= item.productCode %>" class="btn btn-danger">Видалити</a>
+							</td>
+						</tr>			
+					<% }); %>
+				</tbody>
+			</table>
+		<% }else{ %>
+			<p>No records</p>
+		<% } %>
+	</div>
+</div>
+<% include ../partials/footer %>

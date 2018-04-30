@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+<form action="http://localhost:4000/BDiZ/staff/add" method="post" class="col s12">
+	<input type="hidden" name="id_personal" value="">
+	<div class="form-group row">
+		<label for="name" class="col-2 col-form-label">ПІБ</label>
+		<div class="col-10">
+			<input type="text" name="name" value="" class="form-control">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="birthday" class = "col-2 col-form-label">Дата народження</label>
+			<div class="col-10">
+				<input type="date" name="birthday" value="" class="form-control">
+			</div>
+	</div>
+	<div class="form-group row">
+		<label for="phoneNumber" class = "col-2 col-form-label">Номер телефону</label>
+			<div class="col-10">
+				<input type="text" name="phoneNumber" value="" class="form-control">
+			</div>
+	</div>
+	<div class="form-group row">
+		<label for="activeInvoice" class = "col-2 col-form-label">Активна накладна</label>
+			<div class="col-10">
+				<input type="text" name="activeInvoice" value="" class="form-control">
+			</div>
+	</div>
+	<div class="form-group row">
+		<label for="WorkExp" class = "col-2 col-form-label">Стаж роботи</label>
+			<div class="col-10">
+				<input type="text" name="WorkExp" value="" class="form-control">
+			</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-10">
+			<input type="submit" name="submit" value="Зберегти" class="btn btn-primary btn-lg">
+		</div>
+	</div>
+</form>
+<% include ../partials/footer %>

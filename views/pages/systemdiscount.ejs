@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+	<div class = "">
+		<div class="col s12">
+			<a href="/BDiZ/systemdiscount/add" class="btn btn-success btn-lg mt-1">Додати знижку</a>
+			<a href="/" class="btn btn-success btn-lg mt-1">Головна</a>
+		</div>
+	</div>
+	<br>
+
+	<div class "=">
+		<div class="col s12">
+			<% if (items.length > 0){%>
+			<table class = "table">
+				<thead>
+					<tr>
+						<th style="width:20%; text-align:center">ПІБ</th>
+						<th style="width:20%; text-align:center">Намер телефону</th>
+						<th style="width:10%; text-align:center">Відсоток знижки</th>
+						<th style="width:20%; text-align:center">До наступного рівня</th>
+						<th solspan="2" style ="width:30%; text-align:center">Дії</th>
+					</tr>
+				</thead>
+			<tbody>
+				<% items.forEach(function(item, index){ %>
+					<tr>
+							
+							<td style="width:20%; text-align:center"><%= item.name %></td>
+							<td style="width:20%; text-align:center"><%= item.phoneNumber %></td>
+							<td style="width:10%; text-align:center"><%= item.discount %></td>
+							<td style="width:20%; text-align:center"><%= item.ToNextLevel %></td>
+							<td solspan="2" style="width:30%; text-align:center"><%= item.name %>
+								<a href="/BDiZ/systemdiscount/edit/<%= item.phoneNumber %>" class="btn btn-success">Редагувати</a>
+								<a href="/BDiZ/systemdiscount/delete/<%= item.phoneNumber %>" class="btn btn-danger">Видалити</a>
+							</td>
+						</tr>			
+					<% }); %>
+				</tbody>
+			</table>
+		<% }else{ %>
+			<p>No records</p>
+		<% } %>
+	</div>
+</div>
+<% include ../partials/footer %>

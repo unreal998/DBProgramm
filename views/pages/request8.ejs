@@ -1,0 +1,56 @@
+<% include ../partials/header %>
+<form action="http://localhost:4000/BDiZ/request8" method="post" class="col s12">
+	<div class="form-group row">
+		<label for="WorkExp" class="col-2 col-form-label">Введіть стаж роботи</label>
+		<div class="col-10">
+			<input type="text" name="WorkExp" value="" class="form-control">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="birthday" class = "col-2 col-form-label">Введіть рік народження </label>
+			<div class="col-10">
+				<input type="date" name="birthday" value="" class="form-control">
+			</div>
+	</div>
+	<div class="form-group row">
+		<label for="phoneNumber" class = "col-2 col-form-label">Введіть номеp телефону </label>
+			<div class="col-10">
+				<input type="text" name="phoneNumber" value="" class="form-control">
+			</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-10">
+			<input type="submit" name="submit" value="Вивести" class="btn btn-primary btn-lg">
+			<a href="/" class="btn btn-success btn-lg">На головну</a>
+		</div>
+	</div>
+	<div class "=">
+		<div class="col s12">
+			<% if (items.length > 0){%>
+			<table class = "table">
+				<thead>
+					<tr>
+						<th style="width:30%; text-align:center">ПІБ</th>
+						<th style="width:30%; text-align:center">Дата народження</th>
+						<th style="width:10%; text-align:center">Номер телефона</th>
+						<th style="width:30%; text-align:center">Стаж роботи</th>
+					</tr>
+				</thead>
+			<tbody>
+				<% items.forEach(function(item, index){ %>
+					<tr>
+							<td style="width:30%; text-align:center"><%= item.name %></td>
+							<td style="width:30%; text-align:center"><%= item.birthday %></td>
+							<td style="width:10%; text-align:center"><%= item.phoneNumber %></td>
+							<td style="width:30%; text-align:center"><%= item.WorkExp %></td>
+					</tr>			
+					<% }); %>
+				</tbody>
+			</table>
+		<% }else{ %>
+			<p>No records</p>
+		<% } %>
+	</div>
+</div>
+</form>
+<% include ../partials/footer %>

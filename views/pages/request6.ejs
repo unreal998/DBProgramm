@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+<form action="http://localhost:4000/BDiZ/request6" method="post" class="col s12">
+	<div class="form-group row">
+		<label for="discount" class="col-2 col-form-label">Введіть відсоток знижки</label>
+		<div class="col-10">
+			<input type="text" name="discount" value="" class="form-control">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="phoneNumber" class = "col-2 col-form-label">Введіть номер телефону </label>
+			<div class="col-10">
+				<input type="text" name="phoneNumber" value="" class="form-control">
+			</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-10">
+			<input type="submit" name="submit" value="Вивести" class="btn btn-primary btn-lg">
+			<a href="/" class="btn btn-success btn-lg">На головну</a>
+		</div>
+	</div>
+	<div class "=">
+		<div class="col s12">
+			<% if (items.length > 0){%>
+			<table class = "table">
+				<thead>
+					<tr>
+						<th style="width:30%; text-align:center">ПІБ</th>
+						<th style="width:30%; text-align:center">Номер телефону</th>
+						<th style="width:10%; text-align:center">Відсоток знижки</th>
+						<th style="width:30%; text-align:center">Сумма до наступного рівня знижки</th>
+					</tr>
+				</thead>
+			<tbody>
+				<% items.forEach(function(item, index){ %>
+					<tr>
+							<td style="width:30%; text-align:center"><%= item.name %></td>
+							<td style="width:30%; text-align:center"><%= item.phone %></td>
+							<td style="width:10%; text-align:center"><%= item.discount %></td>
+							<td style="width:30%; text-align:center"><%= item.ToNextLevel %></td>
+					</tr>			
+					<% }); %>
+				</tbody>
+			</table>
+		<% }else{ %>
+			<p>No records</p>
+		<% } %>
+	</div>
+</div>
+</form>
+<% include ../partials/footer %>

@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+	<div class = "">
+		<div class="col s12">
+			<a href="/BDiZ/staff/add" class="btn btn-success btn-lg mt-1">Додати працівника</a>
+			<a href="/" class="btn btn-success btn-lg mt-1">На головну</a>
+		</div>
+	</div>
+	<br>
+
+	<div class "=">
+		<div class="col s12">
+			<% if (items.length > 0){%>
+			<table class = "table">
+				<thead>
+					<tr>
+						<th style="width:10%; text-align:center">ПІБ</th>
+						<th style="width:20%; text-align:center">Дата народження</th>
+						<th style="width:20%; text-align:center">Номер телефону</th>
+						<th style="width:10%; text-align:center">Активна накладна</th>
+						<th style="width:10%; text-align:center">Стаж роботи</th>
+						<th solspan="2" style ="width:30%; text-align:center">Дії</th>
+					</tr>
+				</thead>
+			<tbody>
+				<% items.forEach(function(item, index){ %>
+					<tr>
+							
+							<td style="width:10%; text-align:center"><%= item.name %></td>
+							<td style="width:20%; text-align:center"><%= item.birthday %></td>
+							<td style="width:20%; text-align:center"><%= item.phoneNumber %></td>
+							<td style="width:10%; text-align:center"><%= item.activeInvoice %></td>
+							<td style="width:10%; text-align:center"><%= item.WorkExp %></td>
+							<td solspan="2" style="width:30%; text-align:center"><%= item.name %>
+								<a href="/BDiZ/staff/edit/<%= item.phoneNumber %>" class="btn btn-success">Редагувати</a>
+								<a href="/BDiZ/staff/delete/<%= item.phoneNumber %>" class="btn btn-danger">Видалити</a>
+							</td>
+						</tr>			
+					<% }); %>
+				</tbody>
+			</table>
+		<% }else{ %>
+			<p>No records</p>
+		<% } %>
+	</div>
+</div>
+<% include ../partials/footer %>
